@@ -1,5 +1,14 @@
-{% extends './base.html' %} {% block content%}
-
-<h1>Home</h1>
-
+{% extends './base.html' %} {% load static %} {% block content %}
+<div class="container-fluid text-center">
+  <div class="row">
+    <div class="col">
+      <!-- Render the static image file using the static template tag -->
+      <img
+        src="{% static 'Limousine-transfer-chauffeur.jpg' %}"
+        alt="Limousine Transfer Chauffeur"
+      />
+    </div>
+    <div class="col">Column</div>
+  </div>
+</div>
 {% endblock %}
