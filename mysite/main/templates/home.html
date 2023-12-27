@@ -8,7 +8,6 @@
     border-color: #333333;
   }
   @media (max-width: 768px) {
-    /* Adjust the breakpoint (768px) as needed */
     .limoImg {
       margin-top: 20px;
       margin-left: -10px;
@@ -16,6 +15,12 @@
       height: 330px; /* Set the desired height for mobile devices */
       width: auto; /* Adjust width as necessary */
     }
+    .why-us {
+      padding: 10px;
+    }
+  }
+  .why-us {
+    padding: 10%;
   }
   .info-header {
     display: inline-block;
@@ -41,6 +46,15 @@
   }
   .fleet-button {
     background: white;
+  }
+  .icon-text-pair {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Adjust as necessary */
+  }
+
+  .icon-text-pair img {
+    margin-right: 10px; /* Space between icon and text */
   }
 </style>
 <div class="container-fluid m-0 p-0">
@@ -151,4 +165,73 @@
     </div>
   </div>
 </div>
+<div style="background: #f8f8f8">
+  <div class="container text-center p-0 m-0">
+    <div class="row">
+      <!-- Center the content horizontally and vertically -->
+      <!-- Image column -->
+      <div class="col-md-5 col-sm-12 text-center">
+        <img
+          src="{% static 'chauffeur-infront-of-car.jpg' %}"
+          class="img-fluid"
+          alt="Chauffeur in front of car"
+        />
+      </div>
+      <!-- Text column -->
+      <div class="col-md-7 col-sm-12 d-flex flex-column justify-content-center">
+        <div style="margin-left: 40px">
+          <h2 style="text-align: left; font-size: 300%" class="mb-4">
+            OUR CHAUFFEURS ARE<br />PROFESSIONALLY TRAINED
+          </h2>
+          <p style="text-align: left" class="mb-5">
+            Our chauffeurs are trained in advanced driving, business etiquette,
+            basic firefighting, and first aid for top-tier service and safety.
+          </p>
+          <div class="d-flex justify-content-start">
+            <div class="icon-text-pair">
+              <img
+                src="{% static 'first-aid.png' %}"
+                width="50px"
+                height="50px"
+              />
+              <p style="color: #d4012b; margin-left: 10px">Basic First Aid</p>
+            </div>
+            <div class="icon-text-pair">
+              <img
+                src="{% static 'fire-fighting.png' %}"
+                width="50px"
+                height="50px"
+              />
+              <p style="color: #d4012b; margin-left: 10px">
+                Basic Fire Fighting
+              </p>
+            </div>
+            <div class="icon-text-pair">
+              <img
+                src="{% static 'business-etiquette.png' %}"
+                width="50px"
+                height="50px"
+              />
+              <p style="color: #d4012b; margin-left: 10px">
+                Business Etiquette
+              </p>
+            </div>
+            <div class="icon-text-pair">
+              <img
+                src="{% static 'advanced-driving.png' %}"
+                width="50px"
+                height="50px"
+              />
+              <p style="color: #d4012b; margin-left: 10px">
+                Advanced Driver Training
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="why-us"></div>
+
 {% endblock %}
