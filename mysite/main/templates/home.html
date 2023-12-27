@@ -1,18 +1,37 @@
 {% extends './base.html' %} {% load static %} {% block content %}
+<style>
+  .book-chauffeur:hover {
+    background: #333333;
+    border-color: #333333;
+  }
+</style>
 <div class="container-fluid m-0 p-0">
   <div class="row">
-    <div class="col-5 d-flex align-items-center justify-content-center">
+    <div class="col-6 d-flex align-items-center justify-content-center">
       <div>
-        <h1 style="font-size: 500%">Let Us <br />Drive You</h1>
+        <h1 style="font-size: 500%; font-weight: 550">LET US<br />DRIVE YOU</h1>
+        <h5 style="font-weight: 499">The best chauffeurs, chauffeur.</h5>
+        <p />
+        <a href="/book">
+          <button
+            type="button"
+            class="btn btn-dark mt-4 book-chauffeur rounded-0"
+            style="width: 70%; font-weight: 600"
+          >
+            BOOK A CHAUFFEUR &gt;
+          </button>
+        </a>
       </div>
     </div>
-    <div class="col-7">
+    <div class="col-6 fluid">
       <!-- Render the static image file using the static template tag -->
       <img
         src="{% static 'Limousine-transfer-chauffeur.jpg' %}"
         alt="Limousine Transfer Chauffeur"
+        class="fluid"
       />
     </div>
   </div>
 </div>
+<div></div>
 {% endblock %}
