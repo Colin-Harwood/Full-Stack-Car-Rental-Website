@@ -7,16 +7,47 @@
     background: #333333;
     border-color: #333333;
   }
+  @media (max-width: 768px) {
+    /* Adjust the breakpoint (768px) as needed */
+    .limoImg {
+      margin-top: 20px;
+      margin-left: -10px;
+      padding-left: 0px;
+      height: 330px; /* Set the desired height for mobile devices */
+      width: auto; /* Adjust width as necessary */
+    }
+  }
   .info-header {
     display: inline-block;
   }
   .infoImgs {
     display: inline-block;
   }
+  .SUV-image-container {
+    width: 620px;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .SUV-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .fleet-button:hover {
+    transform: scale(1.1);
+    background: white;
+  }
+  .fleet-button {
+    background: white;
+  }
 </style>
 <div class="container-fluid m-0 p-0">
   <div class="row m-0 p-0">
-    <div class="col-6 d-flex align-items-center justify-content-center">
+    <div
+      class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center"
+    >
       <div>
         <h1 style="font-size: 500%; font-weight: 550">LET US<br />DRIVE YOU</h1>
         <h5 style="font-weight: 499">The best chauffeurs, chauffeur.</h5>
@@ -32,12 +63,12 @@
         </a>
       </div>
     </div>
-    <div class="col-6" style="overflow: hidden; max-width: 100%">
+    <div class="col-md-6 col-sm-12" style="overflow: hidden; max-width: 100%">
       <!-- Render the static image file using the static template tag -->
       <img
         src="{% static 'Limousine-transfer-chauffeur.jpg' %}"
         alt="Limousine Transfer Chauffeur"
-        class="fluid"
+        class="fluid limoImg"
         style=""
       />
     </div>
@@ -53,9 +84,11 @@
       safety, punctuality, and personalized service for every journey.
     </p>
     <br />
-    <div class="container text-center">
+    <div
+      class="container text-center align-items-center justify-content-center"
+    >
       <div class="row">
-        <div class="col text-left" style="text-align: left">
+        <div class="col-md-3 col-sm-12 text-left" style="text-align: left">
           <h1 style="font-size: 300%; font-weight: 900">PERFECT FOR</h1>
         </div>
         <div class="col">
@@ -86,6 +119,34 @@
           />
           <p>MATRIC DANCES</p>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="padding: 5% 8%">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-6 col-sm-12 text-left" style="text-align: left">
+        <h1 style="font-size: 300%; font-weight: 900">
+          A VEHICLE FOR ANYTHING YOU NEED
+        </h1>
+        <p>
+          With a wide range of vehicles ranging from luxury SUVs to
+          Convertibles, <br />
+          we'll have the right vehicle for you.
+        </p>
+        <a href="/fleet">
+          <button
+            type="button"
+            class="btn btn-outline-dark fleet-button rounded-0 mt-3"
+            style="color: black; width: 250px; font-weight: 550"
+          >
+            VIEW FLEET
+          </button>
+        </a>
+      </div>
+      <div class="col-md-6 col-sm-12 SUV-image-container">
+        <img src="{% static 'acd-fleet-feature.jpg' %}" />
       </div>
     </div>
   </div>
