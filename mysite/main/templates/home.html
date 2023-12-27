@@ -1,12 +1,21 @@
 {% extends './base.html' %} {% load static %} {% block content %}
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
 <style>
   .book-chauffeur:hover {
     background: #333333;
     border-color: #333333;
   }
+  .info-header {
+    display: inline-block;
+  }
+  .infoImgs {
+    display: inline-block;
+  }
 </style>
 <div class="container-fluid m-0 p-0">
-  <div class="row">
+  <div class="row m-0 p-0">
     <div class="col-6 d-flex align-items-center justify-content-center">
       <div>
         <h1 style="font-size: 500%; font-weight: 550">LET US<br />DRIVE YOU</h1>
@@ -18,20 +27,67 @@
             class="btn btn-dark mt-4 book-chauffeur rounded-0"
             style="width: 70%; font-weight: 600"
           >
-            BOOK A CHAUFFEUR &gt;
+            BOOK A CHAUFFEUR
           </button>
         </a>
       </div>
     </div>
-    <div class="col-6 fluid">
+    <div class="col-6" style="overflow: hidden; max-width: 100%">
       <!-- Render the static image file using the static template tag -->
       <img
         src="{% static 'Limousine-transfer-chauffeur.jpg' %}"
         alt="Limousine Transfer Chauffeur"
         class="fluid"
+        style=""
       />
     </div>
   </div>
 </div>
-<div></div>
+<div style="background: #f8f8f8">
+  <div style="padding: 5% 8%">
+    <p>
+      Our chauffeur service in South Africa offers luxury transportation
+      solutions, ensuring clients experience comfort and sophistication during
+      their travels. With expertly trained chauffeurs and a fleet of premium
+      vehicles ranging from economy cars to luxury vehicles, we prioritize
+      safety, punctuality, and personalized service for every journey.
+    </p>
+    <br />
+    <div class="container text-center">
+      <div class="row">
+        <div class="col text-left" style="text-align: left">
+          <h1 style="font-size: 300%; font-weight: 900">PERFECT FOR</h1>
+        </div>
+        <div class="col">
+          <img
+            src="{% static 'meeting-svg.svg' %}"
+            width="75px"
+            height="75px"
+          />
+          <p>BUSINESS MEETINGS</p>
+        </div>
+        <div class="col">
+          <img src="{% static 'tours-svg.svg' %}" width="75px" height="75px" />
+          <p>TOURS</p>
+        </div>
+        <div class="col">
+          <img
+            src="{% static 'wedding-icon-svg.svg' %}"
+            width="75px"
+            height="75px"
+          />
+          <p>WEDDINGS</p>
+        </div>
+        <div class="col">
+          <img
+            src="{% static 'matric-dance-svg.svg' %}"
+            width="75px"
+            height="75px"
+          />
+          <p>MATRIC DANCES</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
