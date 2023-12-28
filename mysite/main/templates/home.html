@@ -29,9 +29,15 @@
       flex-direction: column;
       align-items: center;
     }
+    .training-head {
+      font-size: 100%;
+    }
+  }
+  .training-head {
+    font-size: 300%;
   }
   .why-us {
-    padding: 10%;
+    padding: 5% 10%;
   }
   .info-header {
     display: inline-block;
@@ -61,11 +67,18 @@
   .icon-text-pair {
     display: flex;
     align-items: center;
-    margin-right: 20px; /* Adjust as necessary */
+    margin-right: 20px;
   }
 
   .icon-text-pair img {
-    margin-right: 10px; /* Space between icon and text */
+    margin-right: 10px;
+  }
+  .outlined-column {
+    background: #ececec;
+    padding: 25px;
+    border-radius: 10px;
+    margin: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 </style>
 <div class="container-fluid m-0 p-0">
@@ -191,7 +204,7 @@
       <!-- Text column -->
       <div class="col-md-7 col-sm-12 d-flex flex-column justify-content-center">
         <div style="margin-left: 40px">
-          <h2 style="text-align: left; font-size: 300%" class="mb-4">
+          <h2 style="text-align: left" class="mb-4 training-head">
             OUR CHAUFFEURS ARE<br />PROFESSIONALLY TRAINED
           </h2>
           <p style="text-align: left" class="mb-5">
@@ -243,6 +256,68 @@
     </div>
   </div>
 </div>
-<div class="why-us"></div>
+<div class="why-us">
+  <h1
+    class="text-center align-items-center justify-content-center"
+    style="font-size: 400%"
+  >
+    WHY US?
+  </h1>
+  <div class="container text-left align-items-center justify-content-center">
+    <div class="row">
+      <div class="col text-left outlined-column">
+        <img src="{% static 'met-personally.png' %}" />
+        <p>
+          <br />
+          Our drivers personally greet clients at the airport, ensuring a
+          seamless and welcoming arrival experience.
+        </p>
+      </div>
+      <div class="col outlined-column">
+        <img src="{% static 'per-transfer.png' %}" />
+        <p>
+          <br />
+          We charge per vehicle per transfer, offering transparent pricing
+          without hidden costs per person or kilometer.
+        </p>
+      </div>
+      <div class="col outlined-column">
+        <img src="{% static 'safest-routes.png' %}" />
+
+        <p>
+          <br />
+          We meticulously select the safest routes, ensuring our clients travel
+          stress-free and with peace of mind.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-left outlined-column" style="text-align: left">
+        <img src="{% static 'latest-cars.png' %}" />
+        <p>
+          <br />
+          Choose from our fleet of the latest models, offering clients the
+          pinnacle of luxury and style for every journey.
+        </p>
+      </div>
+      <div class="col outlined-column">
+        <img src="{% static 'no-tolls.png' %}" />
+        <p>
+          <br />
+          We cover all toll fees, ensuring our clients enjoy a seamless journey
+          without additional costs.
+        </p>
+      </div>
+      <div class="col outlined-column">
+        <img src="{% static 'drivers-permit.png' %}" />
+        <p>
+          <br />
+          All our drivers possess public driver's permits, guaranteeing
+          professionalism and compliance at every turn.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
