@@ -1,0 +1,120 @@
+{% extends './base.html' %} {% load static %} {% block content%}
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Book or View a Booking</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <style>
+      @media (max-width: 768px) {
+        .top-div {
+          padding: 10px;
+        }
+        .col-md-5 {
+          border: 0px solid white !important;
+          margin: 0% !important;
+        }
+      }
+      body {
+        background-image: url("{% static "black-merceded.jpg" %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .top-div {
+        padding: 3% 3%;
+      }
+      .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .flex-image {
+        max-width: 100%;
+        height: auto;
+      }
+      .col-md-5 {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid #d9d9d9;
+        margin: 3%;
+        padding: 0px;
+      }
+      .text-in {
+        padding: 5%;
+        flex: 1;
+        text-align: center !important;
+        background: white;
+      }
+      .buttn:hover {
+        background: #a90626;
+        border-color: #a90626;
+      }
+      .buttn {
+        background: #d3072f;
+        border-color: #d3072f;
+        text-align: center !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-div">
+      <div class="container">
+        <div class="row image-container">
+          <div class="col-md-5 col-sm-12 fluid">
+            <img
+              src="{% static 'Limousine-cheuffeur.jpg' %}"
+              alt="Limousine"
+              class="flex-image fluid"
+            />
+            <div class="text-in">
+              <h2>MAKE A BOOKING</h2>
+              <p>
+                Experience the epitome of luxury and convenience with our
+                chauffeur services – elevate your journey with timely arrivals,
+                expert drivers, and a seamless booking process, ensuring a
+                stress-free and stylish travel experience.
+              </p>
+              <button
+                type="button"
+                class="btn btn-dark mt-4 buttn rounded-0"
+                style="width: 70%; font-weight: 600"
+              >
+                BOOK A CHAUFFEUR
+              </button>
+            </div>
+          </div>
+          <div class="col-md-5 col-sm-12 fluid">
+            <img
+              src="{% static '01-hippo-june-articles-tracker.jpg' %}"
+              alt="Hippo"
+              class="flex-image fluid"
+            />
+            <div class="text-in">
+              <h2>VIEW BOOKINGS</h2>
+              <p>
+                Stay effortlessly informed and in complete control with our
+                user-friendly booking management system. Dive deep into the
+                details, ensuring absolute clarity and confidence for every step
+                of your luxurious journey.
+              </p>
+              <button
+                type="button"
+                class="btn btn-dark mt-4 buttn rounded-0"
+                style="width: 70%; font-weight: 600; justify-content: center"
+              >
+                VIEW YOUR BOOKING
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="" async defer></script>
+  </body>
+</html>
+{% endblock %}
