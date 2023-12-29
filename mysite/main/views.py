@@ -5,3 +5,6 @@ def home(request):
 
 def book(request):
     return render(request, 'book.html', {})
+
+def fleet(request):
+    return render(request, 'fleet.html', {})

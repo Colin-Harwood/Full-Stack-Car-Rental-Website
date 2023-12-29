@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', v.home, name="home"),
     path('book/', v.book, name="book"),
+    path('fleet/', v.fleet, name="fleet"),
 ]
