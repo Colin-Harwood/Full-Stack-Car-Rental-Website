@@ -8,3 +8,9 @@ def book(request):
 
 def fleet(request):
     return render(request, 'fleet.html', {})
+
+def newBooking(request):
+    return render(request, 'newBooking.html', {})
+
+def viewBooking(request):
+    return render(request, 'viewBooking.html', {})
