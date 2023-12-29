@@ -46,6 +46,21 @@
       .container {
         width: 100%;
       }
+      .icon-text-pair {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        width: 150px;
+      }
+
+      .icon-text-pair img {
+        margin-right: 10px;
+      }
+      .icon-text-pair p {
+        color: black;
+        margin-left: 10px;
+        padding-top: 12px;
+      }
     </style>
   </head>
   <body>
@@ -57,26 +72,727 @@
         <div class="row image-container sec mt-3">
           <div class="col-md-6 col-sm-12">
             <img
-              src="{% static 'Limousine-cheuffeur.jpg' %}"
+              src="{% static 'toyota-corolla.png' %}"
               alt="Limousine"
               class="flex-image"
             />
           </div>
           <div class="col-md-6 col-sm-12 fluid">
-            <h2>MAKE A BOOKING</h2>
+            <h2 class="mb-4">Toyota Corolla</h2>
             <p>
-              Experience the epitome of luxury and convenience with our
-              chauffeur services – elevate your journey with timely arrivals,
-              expert drivers, and a seamless booking process, ensuring a
-              stress-free and stylish travel experience.
+              The Toyota Corolla offers a blend of reliability, comfort, and
+              efficiency, making it a top choice for discerning travelers.
             </p>
-            <button
-              type="button"
-              class="btn btn-dark mt-4 buttn rounded-0"
-              style="width: 70%; font-weight: 600"
-            >
-              BOOK A CHAUFFEUR
-            </button>
+            <div class="d-flex justify-content-start align-text-center">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_passengers.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">3 Passengers</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_luggage.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">3 Bags</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_doors.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">4 Doors</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_transmission.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Manual</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_petrol.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Petrol</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_AC.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Air Con</p>
+              </div>
+            </div>
+            <p><a href="/book" style="color: red">Book Now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row image-container sec mt-3">
+          <div class="col-md-6 col-sm-12">
+            <img
+              src="{% static 'toyota-corolla.png' %}"
+              alt="Limousine"
+              class="flex-image"
+            />
+          </div>
+          <div class="col-md-6 col-sm-12 fluid">
+            <h2 class="mb-4">BMW 7 Series</h2>
+            <p>
+              The BMW 7 Series stands as a pinnacle of luxury and innovation,
+              offering unparalleled comfort, cutting-edge technology, and a
+              commanding presence for the ultimate chauffeur-driven experience.
+            </p>
+            <div class="d-flex justify-content-start align-text-center">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_passengers.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">3 Passengers</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_luggage.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">4 Bags</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_doors.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">4 Doors</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_transmission.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Manual</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_petrol.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Petrol / Diesel</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_AC.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Air Con</p>
+              </div>
+            </div>
+            <p><a href="/book" style="color: red">Book Now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row image-container sec mt-3">
+          <div class="col-md-6 col-sm-12">
+            <img
+              src="{% static 'toyota-corolla.png' %}"
+              alt="Limousine"
+              class="flex-image"
+            />
+          </div>
+          <div class="col-md-6 col-sm-12 fluid">
+            <h2 class="mb-4">BMW 5 Series</h2>
+            <p>
+              The BMW 5 Series epitomizes luxury and performance, combining
+              elegant design with advanced technology, ensuring a sophisticated
+              travel experience for every passenger.
+            </p>
+            <div class="d-flex justify-content-start align-text-center">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_passengers.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">3 Passengers</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_luggage.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">4 Bags</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_doors.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">4 Doors</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_transmission.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Manual</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_petrol.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Petrol / Diesel</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_AC.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Air Con</p>
+              </div>
+            </div>
+            <p><a href="/book" style="color: red">Book Now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row image-container sec mt-3">
+          <div class="col-md-6 col-sm-12">
+            <img
+              src="{% static 'toyota-corolla.png' %}"
+              alt="Limousine"
+              class="flex-image"
+            />
+          </div>
+          <div class="col-md-6 col-sm-12 fluid">
+            <h2 class="mb-4">Mercedes Benz C Class</h2>
+            <p>
+              "The Mercedes-Benz C-Class blends timeless elegance with modern
+              sophistication, delivering a refined chauffeur experience
+              characterized by luxury, comfort, and superior performance.
+            </p>
+            <div class="d-flex justify-content-start align-text-center">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_passengers.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">3 Passengers</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_luggage.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">4 Bags</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_doors.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">4 Doors</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_transmission.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Manual</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_petrol.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Petrol / Diesel</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_AC.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Air Con</p>
+              </div>
+            </div>
+            <p><a href="/book" style="color: red">Book Now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="sec-title sec align-middle mt-5">
+        <h2>SUVs</h2>
+      </div>
+      <div class="container">
+        <div class="row image-container sec mt-3">
+          <div class="col-md-6 col-sm-12">
+            <img
+              src="{% static 'toyota-corolla.png' %}"
+              alt="Limousine"
+              class="flex-image"
+            />
+          </div>
+          <div class="col-md-6 col-sm-12 fluid">
+            <h2 class="mb-4">BMW X5</h2>
+            <p>
+              The BMW X5 seamlessly merges luxury with versatility, offering
+              chauffeur passengers a spacious, comfortable ride paired with the
+              performance of a premier SUV.
+            </p>
+            <div class="d-flex justify-content-start align-text-center">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_passengers.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">3 Passengers</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_luggage.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">4 Bags</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_doors.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">5 Doors</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_transmission.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Automatic</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_petrol.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Diesel</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_AC.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Air Con</p>
+              </div>
+            </div>
+            <p><a href="/book" style="color: red">Book Now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row image-container sec mt-3">
+          <div class="col-md-6 col-sm-12">
+            <img
+              src="{% static 'toyota-corolla.png' %}"
+              alt="Limousine"
+              class="flex-image"
+            />
+          </div>
+          <div class="col-md-6 col-sm-12 fluid">
+            <h2 class="mb-4">BMW X7</h2>
+            <p>
+              The BMW X7 epitomizes grandeur and sophistication, providing a
+              chauffeur-driven journey marked by expansive luxury, advanced
+              technology, and unparalleled comfort.
+            </p>
+            <div class="d-flex justify-content-start align-text-center">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_passengers.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">3 Passengers</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_luggage.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">4 Bags</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_doors.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">5 Doors</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_transmission.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Automatic</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_petrol.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Diesel</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_AC.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Air Con</p>
+              </div>
+            </div>
+            <p><a href="/book" style="color: red">Book Now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row image-container sec mt-3">
+          <div class="col-md-6 col-sm-12">
+            <img
+              src="{% static 'toyota-corolla.png' %}"
+              alt="Limousine"
+              class="flex-image"
+            />
+          </div>
+          <div class="col-md-6 col-sm-12 fluid">
+            <h2 class="mb-4">Range Rover Sport</h2>
+            <p>
+              The Range Rover Sport embodies a perfect blend of luxury and
+              performance, ensuring passengers experience a chauffeur-driven
+              journey marked by elegance, comfort, and unparalleled capability.
+            </p>
+            <div class="d-flex justify-content-start align-text-center">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_passengers.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">3 Passengers</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_luggage.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">4 Bags</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_doors.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">5 Doors</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_transmission.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Automatic</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_petrol.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Diesel</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_AC.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Air Con</p>
+              </div>
+            </div>
+            <p><a href="/book" style="color: red">Book Now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="sec-title sec align-middle mt-5">
+        <h2>Minivans</h2>
+      </div>
+      <div class="container">
+        <div class="row image-container sec mt-3">
+          <div class="col-md-6 col-sm-12">
+            <img
+              src="{% static 'toyota-corolla.png' %}"
+              alt="Limousine"
+              class="flex-image"
+            />
+          </div>
+          <div class="col-md-6 col-sm-12 fluid">
+            <h2 class="mb-4">Mercedes-Benz V-Class</h2>
+            <p>
+              The Mercedes-Benz V-Class minivan offers a harmonious blend of
+              spacious luxury and functionality, providing chauffeur-driven
+              travelers with unparalleled comfort, versatility, and
+              sophistication on every journey.
+            </p>
+            <div class="d-flex justify-content-start align-text-center">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_passengers.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">7 Passengers</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_luggage.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">4 Bags</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_doors.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">5 Doors</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_transmission.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Automatic</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_petrol.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Petrol</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_AC.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Air Con</p>
+              </div>
+            </div>
+            <p><a href="/book" style="color: red">Book Now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row image-container sec mt-3">
+          <div class="col-md-6 col-sm-12">
+            <img
+              src="{% static 'toyota-quantum-feature.jpg' %}"
+              alt="Limousine"
+              class="flex-image"
+            />
+          </div>
+          <div class="col-md-6 col-sm-12 fluid">
+            <h2 class="mb-4">Toyota Quantum</h2>
+            <p>
+              The Toyota Quantum stands as a benchmark for reliability and
+              versatility in passenger transportation, ensuring a comfortable
+              and efficient chauffeur experience with its spacious design and
+              trusted performance.
+            </p>
+            <div class="d-flex justify-content-start align-text-center">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_passengers.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">7 Passengers</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_luggage.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">4 Bags</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_doors.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">5 Doors</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_transmission.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Automatic</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_petrol.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Petrol</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_AC.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Air Con</p>
+              </div>
+            </div>
+            <p><a href="/book" style="color: red">Book Now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row image-container sec mt-3">
+          <div class="col-md-6 col-sm-12">
+            <img
+              src="{% static 'volkswagen-t5-kombi-feature-removebg-preview.png' %}"
+              alt="Limousine"
+              class="flex-image"
+            />
+          </div>
+          <div class="col-md-6 col-sm-12 fluid">
+            <h2 class="mb-4">Volkswagen T6 Kombi 2.0 TDI DSG</h2>
+            <p>
+              The Volkswagen T6 Kombi 2.0 TDI DSG seamlessly combines
+              versatility with efficiency, providing a chauffeur-driven
+              experience marked by spacious comfort, agile handling, and trusted
+              Volkswagen reliability
+            </p>
+            <div class="d-flex justify-content-start align-text-center">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_passengers.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">7 Passengers</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_luggage.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">4 Bags</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_doors.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">5 Doors</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_transmission.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Automatic</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_petrol.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Diesel</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'car_details_AC.png' %}"
+                  width="25px"
+                  height="25px"
+                />
+                <p style="color: black; margin-left: 10px">Air Con</p>
+              </div>
+            </div>
+            <p><a href="/book" style="color: red">Book Now</a></p>
           </div>
         </div>
       </div>
