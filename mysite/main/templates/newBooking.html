@@ -1,82 +1,183 @@
 {% extends './base.html'%} {% block content%}
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Booking</title>
     <style>
       @media (max-width: 768px) {
-        .page-div {
-          padding: 10px;
+        .top-div {
+          flex-direction: column;
+        }
+        #map {
+          margin-top: 20px;
+          width: 100% !important;
+        }
+        .top-div {
+          padding: 10px !important;
+        }
+        .sec-div {
+          width: 100% !important;
         }
       }
-      .page-div {
-        margin: 5% 15%;
+      #map {
+        height: 400px;
+        width: 40%;
       }
-      form {
-        width: 45%;
+      .head-text {
+        font-size: 50px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 20px;
+        text-align: center;
+        width: 100% !important;
+      }
+      .top-div {
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 80px;
+        align-items: center;
       }
     </style>
   </head>
   <body>
-    <div class="page-div">
-      <form>
-        <label for="examplePick" class="form-label">Pick Up Location</label>
-        <input
-          type="text"
-          class="form-control mb-2"
-          id="examplePick"
-          aria-describedby="pickUpLocation"
-        />
-        <label for="exampleDrop" class="form-label">Drop Off Location</label>
-        <input
-          type="text"
-          class="form-control mb-2"
-          id="exampleDrop"
-          aria-describedby="dropOffLocation"
-        />
+    <div class="top-div" style="">
+      <div style="width: 50%" class="sec-div">
+        <h1 class="head-text">New Booking</h1>
+        <form action="/new_booking" method="POST">
+          {% csrf_token %}
 
-        <div class="mb-2">
-          <label for="exampleInputEmail1" class="form-label"
-            >Email address</label
-          >
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
-          <div id="emailHelp" class="form-text">
-            We'll never share your email with anyone else.
-          </div>
-        </div>
-        <div class="mb-3">
-          <label for="examplePhone" class="form-label">Phone number</label>
+          <label for="exampleFName" class="form-label">First Name</label>
           <input
             type="text"
-            class="form-control"
-            id="examplePhone"
-            aria-describedby="emailHelp"
+            class="form-control mb-2"
+            id="exampleFName"
+            aria-describedby="firstName"
           />
-          <div id="emailHelp" class="form-text">
-            We'll never share your phone number with anyone else.
+          <label for="exampleSName" class="form-label">Surname</label>
+          <input
+            type="text"
+            class="form-control mb-2"
+            id="exampleSName"
+            aria-describedby="SName"
+          />
+          <label for="examplePick" class="form-label">Pick Up Location</label>
+          <input
+            type="text"
+            class="form-control mb-2"
+            id="examplePick"
+            aria-describedby="pickUpLocation"
+          />
+          <label for="exampleDrop" class="form-label">Drop Off Location</label>
+          <input
+            type="text"
+            class="form-control mb-2"
+            id="exampleDrop"
+            aria-describedby="dropOffLocation"
+          />
+          <div class="mb-2">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" class="form-text">
+              We'll never share your email with anyone else.
+            </div>
           </div>
-        </div>
+          <div class="mb-3">
+            <label for="examplePhone" class="form-label">Phone number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="examplePhone"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" class="form-text">
+              We'll never share your phone number with anyone else.
+            </div>
+          </div>
 
-        <select class="form-select mb-3" aria-label="Default select example">
-          <option selected>--Vehicle Type--</option>
-          <option value="1">Sedan</option>
-          <option value="2">SUV</option>
-          <option value="3">Minivan</option>
-        </select>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+          <select class="form-select mb-3" aria-label="Default select example">
+            <option selected>--Vehicle Type--</option>
+            <option value="1">Sedan</option>
+            <option value="2">SUV</option>
+            <option value="3">Minivan</option>
+          </select>
+          <div id="output" class="mb-3"></div>
+          <button
+            type="button"
+            onclick="calculateAndDisplayRoute()"
+            class="btn btn-primary"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+      <div id="map" style="height: 400px; width: 40%"></div>
     </div>
-    <script src="" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6T8KDbJiGkvzkrVr51za7Md0Z0TgzYTY&libraries=places"></script>
+    <script>
+      var map;
+      var directionsService;
+      var directionsRenderer;
+
+      function initMap() {
+        directionsService = new google.maps.DirectionsService();
+        directionsRenderer = new google.maps.DirectionsRenderer();
+
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: -34.397, lng: 150.644 },
+          zoom: 8,
+        });
+
+        directionsRenderer.setMap(map);
+
+        initializeAutocomplete("examplePick");
+        initializeAutocomplete("exampleDrop");
+      }
+
+      function calculateAndDisplayRoute() {
+        var origin = document.getElementById("examplePick").value;
+        var destination = document.getElementById("exampleDrop").value;
+
+        directionsService.route(
+          {
+            origin: origin,
+            destination: destination,
+            travelMode: "DRIVING",
+          },
+          function (response, status) {
+            if (status === "OK") {
+              directionsRenderer.setDirections(response);
+
+              // Extract distance and duration from the response
+              var distance = response.routes[0].legs[0].distance.text;
+              var duration = response.routes[0].legs[0].duration.text;
+
+              // Display distance and duration
+              document.getElementById("output").innerHTML =
+                "Distance: " + distance + ", Duration: " + duration;
+            } else {
+              window.alert("Directions request failed due to " + status);
+            }
+          }
+        );
+      }
+
+      function initializeAutocomplete(id) {
+        var input = document.getElementById(id);
+        var autocomplete = new google.maps.places.Autocomplete(input);
+      }
+
+      google.maps.event.addDomListener(window, "load", initMap);
+    </script>
   </body>
 </html>
+
 {% endblock %}
