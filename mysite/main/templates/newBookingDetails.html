@@ -73,7 +73,7 @@
     <div class="top-div" style="">
       <div style="width: 50%" class="sec-div">
         <h1 class="head-text">New Booking</h1>
-        <form action="/new_booking" method="POST">
+        <form action="/new_booking" method="POST" onsubmit="store()">
           {% csrf_token %}
 
           <label for="exampleFName" class="form-label">First Name</label>
@@ -116,13 +116,11 @@
             />
           </div>
           <div class="mb-2">
-            <label for="exampleInputEmail1" class="form-label"
-              >Email address</label
-            >
+            <label for="email" class="form-label">Email address</label>
             <input
               type="email"
               class="form-control"
-              id="exampleInputEmail1"
+              id="email"
               aria-describedby="emailHelp"
             />
 
@@ -217,6 +215,18 @@
       }
 
       google.maps.event.addDomListener(window, "load", initMap);
+
+      function store() {
+        var inputEmail = document.getElementById("email");
+        localStorage.setItem("email", inputEmail.value);
+
+        // Add similar lines for other form fields
+        var examplePick = document.getElementById("examplePick");
+        localStorage.setItem("examplePick", examplePick.value);
+
+        var exampleDrop = document.getElementById("exampleDrop");
+        localStorage.setItem("exampleDrop", exampleDrop.value);
+      }
     </script>
   </body>
 </html>
