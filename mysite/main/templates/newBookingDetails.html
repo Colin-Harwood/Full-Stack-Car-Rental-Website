@@ -73,7 +73,12 @@
     <div class="top-div" style="">
       <div style="width: 50%" class="sec-div">
         <h1 class="head-text">New Booking</h1>
-        <form action="/new_booking" method="POST" onsubmit="store()">
+        <form
+          action="/book/vehicle/"
+          method="POST"
+          onsubmit="store()"
+          target="/book/vehicle/"
+        >
           {% csrf_token %}
 
           <label for="exampleFName" class="form-label">First Name</label>
@@ -143,9 +148,10 @@
           </div>
           <div id="output" class="mb-3"></div>
           <button
-            type="button"
+            type="submit"
             onclick="calculateAndDisplayRoute()"
             class="btn btn-primary"
+            target="/book/vehicle/"
           >
             Choose A Vehicle
           </button>
@@ -197,6 +203,8 @@
                 var distance = response.routes[0].legs[0].distance.text;
                 var duration = response.routes[0].legs[0].duration.text;
 
+                localStorage.setItem("distance", distance);
+                localStorage.setItem("duration", duration);
                 // Display distance and duration
                 document.getElementById("output").innerHTML =
                   "Distance: " + distance + ", Duration: " + duration;
@@ -220,13 +228,34 @@
         var inputEmail = document.getElementById("email");
         localStorage.setItem("email", inputEmail.value);
 
-        // Add similar lines for other form fields
         var examplePick = document.getElementById("examplePick");
         localStorage.setItem("examplePick", examplePick.value);
 
         var exampleDrop = document.getElementById("exampleDrop");
         localStorage.setItem("exampleDrop", exampleDrop.value);
+
+        var exampleDateTime = document.getElementById("exampleDateTime");
+        localStorage.setItem("exampleDateTime", exampleDateTime.value);
+
+        var examplePhone = document.getElementById("examplePhone");
+        localStorage.setItem("examplePhone", examplePhone.value);
+
+        var exampleFName = document.getElementById("exampleFName");
+        localStorage.setItem("exampleFName", exampleFName.value);
+
+        var exampleSName = document.getElementById("exampleSName");
+        localStorage.setItem("exampleSName", exampleSName.value);
+
+        var output = document.getElementById("output");
+        localStorage.setItem("output", output);
       }
+
+      for (var i in localStorage) {
+        var item = localStorage.getKey(i);
+        console.log(i + " => " + item);
+      }
+
+      console.log("test");
     </script>
   </body>
 </html>

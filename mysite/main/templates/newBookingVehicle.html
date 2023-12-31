@@ -1,4 +1,4 @@
-{% extends './base.html' %} {% block content %}
+{% extends './base.html' %} {% load static %} {% block content %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -13,7 +13,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="" />
     <style>
-      .col {
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .actve {
+        background-color: #d3072f;
+        color: #fff !important;
+      }
+      .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .flex-image {
+        max-width: 100%;
+        height: auto;
+        margin-top: 0%
+      }
+
+      .col-md-5 {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid #d9d9d9;
+        margin: 0% 1%;
+        padding: 0px;
+        gap: 10px;
+        justify-content: space-evenly !important;
+      }
+      .text-in {
+        padding: 0%;
+        flex: 1;
+        text-align: center !important;
+        background: white;
+      }
+      .col-lg-4 {
+        box-sizing: border-box;
+        margin: 2%; /* Remove the margin */
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 0;
+      }
+      .top-row {
         border: 0px solid #d3072f;
         padding: 10px;
         border-radius: 5px;
@@ -21,10 +73,18 @@
         background-color: #d3072f;
         font-weight: 700;
         color: #7e7f7a;
+        width 25% !important;
       }
       .actve {
         background-color: #d3072f;
         color: #fff !important;
+      }
+      .top-con {
+        margin-top: 0%;
+      }
+      .btn {
+        margin-bottom: 20px;
+        border-radius: 4px !important;
       }
     </style>
   </head>
@@ -35,15 +95,282 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
+    <div class="container text-center top-con" style="margin-top: -20px">
+      <div class="row" style="width: 90%">
+        <div class="col top-row">1 Booking Details</div>
+        <div class="col actve top-row">2 Select Vehicle</div>
+        <div class="col top-row">3 Payment</div>
+      </div>
+    </div>
     <div class="container text-center">
       <div class="row">
-        <div class="col">1 Booking Details</div>
-        <div class="col actve">2 Select Vehicle</div>
-        <div class="col">3 Payment</div>
+        <div class="col-lg-3 col-md-5 col-sm-12 fluid">
+          <h2 class="mt-3">Toyota Corolla</h2>
+          <div class="text-in">
+            <p>3 Passengers | 3 bags</p>
+          </div>
+          <img
+            src="{% static 'toyota-corolla.png' %}"
+            alt="Limousine"
+            class="flex-image fluid"
+          />
+          <div class="text-in">
+            <a href="/book/new">
+              <button
+                type="button"
+                class="btn btn-dark mt-4 buttn rounded-0"
+                style="width: 70%; font-weight: 600"
+                id="tc"
+              ></button>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-12 fluid">
+          <h2 class="mt-3">BMW 5 Series</h2>
+          <div class="text-in">
+            <p>3 Passengers | 3 bags</p>
+          </div>
+          <img
+            src="{% static 'bmw-520i-feature.jpg' %}"
+            alt="Limousine"
+            class="flex-image fluid"
+          />
+          <div class="text-in">
+            <a href="/book/new">
+              <button
+                type="button"
+                class="btn btn-dark mt-4 buttn rounded-0"
+                style="width: 70%; font-weight: 600"
+                id="5s"
+              ></button>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-12 fluid">
+          <h2 class="mt-3">BMW 7 Series</h2>
+          <div class="text-in">
+            <p>3 Passengers | 3 bags</p>
+          </div>
+          <img
+            src="{% static 'bmw740d_feature-min.jpg' %}"
+            alt="Limousine"
+            class="flex-image fluid"
+          />
+          <div class="text-in">
+            <a href="/book/new">
+              <button
+                type="button"
+                class="btn btn-dark mt-4 buttn rounded-0"
+                style="width: 70%; font-weight: 600"
+                id="7s"
+              ></button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-5 col-sm-12 fluid">
+          <h2 class="mt-3">Mercedes Benz C Class</h2>
+          <div class="text-in">
+            <p>3 Passengers | 3 bags</p>
+          </div>
+          <img
+            src="{% static 'Mercedes-Benz-C220d-Sedan-AMG-Line-2023.jpg' %}"
+            alt="Limousine"
+            class="flex-image fluid"
+          />
+          <div class="text-in">
+            <a href="/book/new">
+              <button
+                type="button"
+                class="btn btn-dark mt-4 buttn rounded-0"
+                style="width: 70%; font-weight: 600"
+                id="mc"
+              ></button>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-12 fluid">
+          <h2 class="mt-3">BMW X5</h2>
+          <div class="text-in">
+            <p>3 Passengers | 3 bags</p>
+          </div>
+          <img
+            src="{% static 'bmw-x5-feature.jpg' %}"
+            alt="Limousine"
+            class="flex-image fluid"
+          />
+          <div class="text-in">
+            <a href="/book/new">
+              <button
+                type="button"
+                class="btn btn-dark mt-4 buttn rounded-0"
+                style="width: 70%; font-weight: 600"
+                id="5x"
+              ></button>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-12 fluid">
+          <h2 class="mt-3">BMW X7</h2>
+          <div class="text-in">
+            <p>3 Passengers | 3 bags</p>
+          </div>
+          <img
+            src="{% static 'bmw_x7_23_feature-min.jpg' %}"
+            alt="Limousine"
+            class="flex-image fluid"
+          />
+          <div class="text-in">
+            <a href="/book/new">
+              <button
+                type="button"
+                class="btn btn-dark mt-4 buttn rounded-0"
+                style="width: 70%; font-weight: 600"
+                id="7x"
+              ></button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-5 col-sm-12 fluid">
+          <h2 class="mt-3">Range Rover Sport</h2>
+          <div class="text-in">
+            <p>3 Passengers | 3 bags</p>
+          </div>
+          <img
+            src="{% static 'RangeRoverSport_TDV6_feature-min.jpg' %}"
+            alt="Limousine"
+            class="flex-image fluid"
+          />
+          <div class="text-in">
+            <a href="/book/new">
+              <button
+                type="button"
+                class="btn btn-dark mt-4 buttn rounded-0"
+                style="width: 70%; font-weight: 600"
+                id="rs"
+              ></button>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-12 fluid">
+          <h2 class="mt-3">Mercedes V Class</h2>
+          <div class="text-in">
+            <p>3 Passengers | 3 bags</p>
+          </div>
+          <img
+            src="{% static 'mercedes-v-class.jpg' %}"
+            alt="Limousine"
+            class="flex-image fluid"
+          />
+          <div class="text-in">
+            <a href="/book/new">
+              <button
+                type="button"
+                class="btn btn-dark mt-4 buttn rounded-0"
+                style="width: 70%; font-weight: 600"
+                id="mv"
+              ></button>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-12 fluid">
+          <h2 class="mt-3">Toyota Quantum</h2>
+          <div class="text-in">
+            <p>3 Passengers | 3 bags</p>
+          </div>
+          <img
+            src="{% static 'toyota-quantum-feature.jpg' %}"
+            alt="Limousine"
+            class="flex-image fluid"
+          />
+          <div class="text-in">
+            <a href="/book/new">
+              <button
+                type="button"
+                class="btn btn-dark mt-4 buttn rounded-0"
+                style="width: 70%; font-weight: 600"
+                id="tq"
+              ></button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="width: 100%">
+        <div class="col-lg-3 col-md-5 col-sm-12 fluid">
+          <h2 class="mt-3">Volswagen Kombi</h2>
+          <div class="text-in">
+            <p>3 Passengers | 3 bags</p>
+          </div>
+          <img
+            src="{% static 'volkswagen-t5-kombi-feature-removebg-preview.png' %}"
+            alt="Limousine"
+            class="flex-image fluid"
+          />
+          <div class="text-in">
+            <a href="/book/new">
+              <button
+                type="button"
+                class="btn btn-dark mt-4 buttn rounded-0"
+                style="width: 70%; font-weight: 600"
+                id="vk"
+              ></button>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
-    <script src="" async defer></script>
+    <script>
+      window.onload = function () {
+        // Get the distance from local storage
+        var distance = localStorage.getItem("distance");
+
+        var distanceValue = distance.replace(" km", "");
+
+        var time = localStorage.getItem("duration");
+
+        var timeValue = time.match(/\d+/)[0];
+        // Select the button with the id of "tc"
+        var tcButton = document.getElementById("tc");
+        var s5Button = document.getElementById("5s");
+        var s7Button = document.getElementById("7s");
+        var mcButton = document.getElementById("mc");
+        var s5xButton = document.getElementById("5x");
+        var s7xButton = document.getElementById("7x");
+        var rsButton = document.getElementById("rs");
+        var mvButton = document.getElementById("mv");
+        var tqButton = document.getElementById("tq");
+        var vkButton = document.getElementById("vk");
+
+        var amountTime = timeValue * 7 + 400;
+
+        var amountDis = distanceValue * 3;
+
+        // Set the text content of the button to the distance
+        tcButton.textContent = "R " + (amountDis + amountTime).toFixed(2);
+        s5Button.textContent =
+          "R " + ((amountDis + amountTime) * 1.8).toFixed(2);
+        s7Button.textContent =
+          "R " + ((amountDis + amountTime) * 1.9).toFixed(2);
+        mcButton.textContent =
+          "R " + ((amountDis + amountTime) * 1.7).toFixed(2);
+        s5xButton.textContent =
+          "R " + ((amountDis + amountTime) * 2).toFixed(2);
+        s7xButton.textContent =
+          "R " + ((amountDis + amountTime) * 2.1).toFixed(2);
+        rsButton.textContent =
+          "R " + ((amountDis + amountTime) * 2.3).toFixed(2);
+        mvButton.textContent =
+          "R " + ((amountDis + amountTime) * 3.1).toFixed(2);
+        tqButton.textContent =
+          "R " + ((amountDis + amountTime) * 2.3).toFixed(2);
+        vkButton.textContent =
+          "R " + ((amountDis + amountTime) * 2.1).toFixed(2);
+      };
+    </script>
   </body>
 </html>
 {% endblock %}
