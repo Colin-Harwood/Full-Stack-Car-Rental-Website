@@ -26,4 +26,5 @@ urlpatterns = [
     path('book/new/', v.newBookingDetails, name="newBooking"),
     path('book/vehicle/', v.newBookingVehicle, name="newBooking"),
     path('book/view/', v.viewBooking, name="viewBooking"),
+    path('book/pay/', v.newBookingPay, name="newBookingPay"),
 ]

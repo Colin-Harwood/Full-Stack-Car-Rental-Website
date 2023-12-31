@@ -1,0 +1,146 @@
+{% extends "./base.html" %} {% load static %} {% block content %}
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Checkout Booking</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <style>
+      body {
+        background-color: #f5f5f5;
+      }
+      .head-text {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .form-label {
+        font-size: 20px;
+      }
+      .form-control {
+        font-size: 20px;
+      }
+      .btn-primary {
+        font-size: 20px;
+        margin-top: 20px;
+        margin-left: 40%;
+      }
+      .browsehappy {
+        margin: 0.2em 0;
+        background: #ccc;
+        color: #000;
+        padding: 0.2em 0;
+      }
+      .all-form {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <h1 class="head-text">New Booking</h1>
+    <p class="head-text">
+      Please note that this is a demo website and demo and does not take
+      payments. Please also do not use real personal information.
+    </p>
+    <div class="all-form">
+      <form
+        action="/book/vehicle/"
+        method="POST"
+        target="/book/vehicle/"
+        style="width: 50%"
+      >
+        {% csrf_token %}
+
+        <label for="cardNo" class="form-label">Card no.</label>
+        <input
+          type="text"
+          class="form-control mb-2"
+          id="cardNo"
+          aria-describedby="cardNo"
+        />
+        <label for="cvc" class="form-label">CVC</label>
+        <input
+          type="text"
+          class="form-control mb-2"
+          id="cvc"
+          aria-describedby="cvc"
+        />
+        <label for="expDate" class="form-label">Expiry Date</label>
+        <input
+          type="text"
+          class="form-control mb-2"
+          id="expDate"
+          aria-describedby="pickUpLocation"
+        />
+        <button
+          type="submit"
+          onclick="sendInfo(event)"
+          class="btn btn-primary mb-5"
+          target="/book/pay/"
+        >
+          Confirm Booking
+        </button>
+        <div id="pay-no"></div>
+      </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      function sendInfo(event) {
+        event.preventDefault();
+
+        var cardNo = document.getElementById("cardNo").value;
+        var cvc = document.getElementById("cvc").value;
+        var expiry = document.getElementById("expDate").value;
+        var price = localStorage.getItem("price");
+        var vehicle = localStorage.getItem("vehicle");
+        var pickUpLocation = localStorage.getItem("examplePick");
+        var dropOffLocation = localStorage.getItem("exampleDrop");
+        var pickUp = localStorage.getItem("exampleDateTime");
+        var firstName = localStorage.getItem("exampleFName");
+        var lastName = localStorage.getItem("exampleSName");
+        var email = localStorage.getItem("email");
+        var phone = localStorage.getItem("examplePhone");
+
+        var data = {
+          cardNo: cardNo,
+          cvc: cvc,
+          expiry: expiry,
+          price: price,
+          vehicle: vehicle,
+          pickUpLocation: pickUpLocation,
+          dropOffLocation: dropOffLocation,
+          pickUp: pickUp,
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          phone: phone,
+        };
+        $.ajax({
+          type: "POST",
+          url: "/book/pay/",
+          data: data,
+          success: function (data) {
+            console.log(data);
+          },
+        });
+
+        document.getElementById("pay-no").innerHTML =
+          "Id number: " + Math.floor(Math.random() * 1000000000);
+      }
+    </script>
+  </body>
+</html>
+{% endblock %}

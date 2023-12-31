@@ -17,3 +17,6 @@ def viewBooking(request):
 
 def newBookingVehicle(request):
     return render(request, 'newBookingVehicle.html', {})
+
+def newBookingPay(request):
+    return render(request, 'newBookingPay.html', {})
