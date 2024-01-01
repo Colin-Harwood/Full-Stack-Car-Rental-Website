@@ -4,6 +4,9 @@ from datetime import datetime
 from .models import BookingDetails
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponseRedirect
 
 def home(request):
     return render(request, 'home.html', {})
@@ -73,3 +76,11 @@ def viewBookingDetails(request, booking_id=None):
 
     # Pass the bookings to the template
     return render(request, 'bookingDetails.html', {'bookings': bookings})
+
+def delete_booking(request, booking_id):
+    if request.method == 'POST':
+        print("Delete booking", booking_id)
+        booking = get_object_or_404(BookingDetails, id=booking_id)
+        booking.delete()
+        messages.success(request, 'Booking deleted successfully')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))

@@ -14,8 +14,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="" />
     <style>
-      .all-cont {
+        @media (max-width: 768px) {
+            footer {
+                fluid;
+                width: 450%;
+                margin: 0;
+                
+        padding: 0px !important;
+              }
+        }
+        body {
+        background-color: #f5f5f5;
+        }
+      .all-contentt {
         padding: 10px 50px;
+      }
+       footer {
+        width: 120%;
+        margin: 0 -120px;
+        padding: 0px !important;
+      } 
+      .col {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 10px;
+        background-color: #fff;
+      }
+      .btn-primary {
+        display: flex;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+      
+        background-color: #d3072f;
+        border: none;
+        transition: transform 0.3s ease 0s;
+      }
+      .btn-primary:hover {
+        background-color: #d3072f !important;
+        border: none;
+        transform: scale(1.1);
       }
     </style>
   </head>
@@ -26,22 +65,51 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-    <div class="all-cont">
+    <div class="all-contentt">
       <h1>Bookings</h1>
-      {% for booking in bookings %}
-      <h2>Booking from {{ booking.pickUp }} to {{ booking.dropOff }}</h2>
-      <p>First Name: {{ booking.firstName }}</p>
-      <p>Last Name: {{ booking.lastName }}</p>
-      <p>Email: {{ booking.email }}</p>
-      <p>Phone: {{ booking.phone }}</p>
-      <p>Pick Up Location: {{ booking.pickUp }}</p>
-      <p>Drop Off Location: {{ booking.dropOff }}</p>
-      <p>Vehicle: {{ booking.vehicle }}</p>
-      <p>Price: R{{ booking.price }}</p>
-      <p>Date: {{ booking.date }}</p>
-      <p>Time: {{ booking.time }}</p>
-      {% endfor %}
+      <hr />
+      {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+      <div class="container">
+        {% for booking in bookings %}
+        <div class="row">
+          
+          <div class="col">
+            <h2>Booking from {{ booking.pickUp }} to {{ booking.dropOff }}</h2>
+            <p>First Name: {{ booking.firstName }}</p>
+            <p>Last Name: {{ booking.lastName }}</p>
+            <p>Email: {{ booking.email }}</p>
+            <p>Phone: {{ booking.phone }}</p>
+            <p>Pick Up Location: {{ booking.pickUp }}</p>
+            <p>Drop Off Location: {{ booking.dropOff }}</p>
+            <p>Vehicle: {{ booking.vehicle }}</p>
+            <p>Price: R{{ booking.price }}</p>
+            <p>Date: {{ booking.date }}</p>
+            <p>Time: {{ booking.time }}</p>
+            <div style="display: flex; justify-content: start; gap: 20px;">
+              <button type="submit" class="btn btn-primary">
+                  Edit Booking Details
+              </button>
+              <form method="POST" action="{% url 'delete_booking' booking.id %}">
+                {% csrf_token %}
+                <input type="hidden" name="booking_id" value="{{ booking.id }}">
+                <button type="submit" class="btn btn-primary">
+                  Cancel Booking
+                </button>
+              </form>
+          </div>
+          </div>
+          
+        </div>
+        {% endfor %}
+      </div>
     </div>
+</div>
     <script src="" async defer></script>
   </body>
 </html>
