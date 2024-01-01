@@ -1,6 +1,16 @@
 {% extends './base.html' %} {% load static %} {% block content %}
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Book affordable, high quality, easy to use chaueffeur services with quick turn around on bookings"
+  />
+  <title>Professional Chauffeur Services | Chauffeur</title>
+  <link
+    rel="preload"
+    href="{% static 'Limousine-transfer-chauffeur.webp' %}"
+    as="image"
+  />
 </head>
 <style>
   .book-chauffeur:hover {
@@ -38,6 +48,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+    body {
+      text-align: center !important;
     }
   }
   .training-head {
@@ -89,243 +102,266 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 </style>
-<div class="container-fluid m-0 p-0">
-  <div class="row m-0 p-0">
-    <div
-      class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center"
-    >
-      <div>
-        <h1 style="font-size: 500%; font-weight: 550">LET US<br />DRIVE YOU</h1>
-        <h5 style="font-weight: 499">The best chauffeurs, chauffeur.</h5>
-        <p />
-        <a href="/book">
-          <button
-            type="button"
-            class="btn btn-dark mt-4 book-chauffeur rounded-0"
-            style="width: 70%; font-weight: 600"
-          >
-            BOOK A CHAUFFEUR
-          </button>
-        </a>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-12" style="overflow: hidden; max-width: 100%">
-      <!-- Render the static image file using the static template tag -->
-      <img
-        src="{% static 'Limousine-transfer-chauffeur.jpg' %}"
-        alt="Limousine Transfer Chauffeur"
-        class="fluid limoImg"
-        style=""
-      />
-    </div>
-  </div>
-</div>
-<div style="background: #f8f8f8">
-  <div style="padding: 5% 8%">
-    <p>
-      Our chauffeur service in South Africa offers luxury transportation
-      solutions, ensuring clients experience comfort and sophistication during
-      their travels. With expertly trained chauffeurs and a fleet of premium
-      vehicles ranging from economy cars to luxury vehicles, we prioritize
-      safety, punctuality, and personalized service for every journey.
-    </p>
-    <br />
-    <div
-      class="container text-center align-items-center justify-content-center"
-    >
-      <div class="row">
-        <div class="col-md-3 col-sm-12 text-left" style="text-align: left">
-          <h1 style="font-size: 300%; font-weight: 900">PERFECT FOR</h1>
-        </div>
-        <div class="col">
-          <img
-            src="{% static 'meeting-svg.svg' %}"
-            width="75px"
-            height="75px"
-          />
-          <p>BUSINESS MEETINGS</p>
-        </div>
-        <div class="col">
-          <img src="{% static 'tours-svg.svg' %}" width="75px" height="75px" />
-          <p>TOURS</p>
-        </div>
-        <div class="col">
-          <img
-            src="{% static 'wedding-icon-svg.svg' %}"
-            width="75px"
-            height="75px"
-          />
-          <p>WEDDINGS</p>
-        </div>
-        <div class="col">
-          <img
-            src="{% static 'matric-dance-svg.svg' %}"
-            width="75px"
-            height="75px"
-          />
-          <p>MATRIC DANCES</p>
+<body>
+  <div class="container-fluid m-0 p-0">
+    <div class="row m-0 p-0">
+      <div
+        class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center"
+      >
+        <div>
+          <h1 style="font-size: 500%; font-weight: 550">
+            LET US<br />DRIVE YOU
+          </h1>
+          <p style="font-weight: 499">The best chauffeurs, chauffeur.</p>
+          <a href="/book">
+            <button
+              type="button"
+              class="btn btn-dark mt-4 book-chauffeur rounded-0"
+              style="width: 70%; font-weight: 600"
+            >
+              BOOK A CHAUFFEUR
+            </button>
+          </a>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<div style="padding: 5% 8%">
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-md-6 col-sm-12 text-left" style="text-align: left">
-        <h1 style="font-size: 300%; font-weight: 900">
-          A VEHICLE FOR ANYTHING YOU NEED
-        </h1>
-        <p>
-          With a wide range of vehicles ranging from luxury SUVs to
-          Convertibles, <br />
-          we'll have the right vehicle for you.
-        </p>
-        <a href="/fleet">
-          <button
-            type="button"
-            class="btn btn-outline-dark fleet-button rounded-0 mt-3"
-            style="color: black; width: 250px; font-weight: 550"
-          >
-            VIEW FLEET
-          </button>
-        </a>
-      </div>
-      <div class="col-md-6 col-sm-12 SUV-image-container">
-        <img src="{% static 'acd-fleet-feature.jpg' %}" />
-      </div>
-    </div>
-  </div>
-</div>
-<div style="background: #f8f8f8">
-  <div class="container text-center p-0 m-0">
-    <div class="row">
-      <!-- Center the content horizontally and vertically -->
-      <!-- Image column -->
-      <div class="col-md-5 col-sm-12 text-center">
+      <div class="col-md-6 col-sm-12" style="overflow: hidden; max-width: 100%">
+        <!-- Render the static image file using the static template tag -->
         <img
-          src="{% static 'chauffeur-infront-of-car.jpg' %}"
-          class="img-fluid"
-          alt="Chauffeur in front of car"
+          src="{% static 'Limousine-transfer-chauffeur.webp' %}"
+          alt="Chauffeur Transfer in Limousine"
+          class="fluid limoImg"
         />
       </div>
-      <!-- Text column -->
-      <div class="col-md-7 col-sm-12 d-flex flex-column justify-content-center">
-        <div style="margin-left: 40px">
-          <h2 style="text-align: left" class="mb-4 training-head">
-            OUR CHAUFFEURS ARE PROFFESIONALY TRAINED
-          </h2>
-          <p style="text-align: left" class="mb-5">
-            Our chauffeurs are trained in advanced driving, business etiquette,
-            basic firefighting, and first aid for top-tier service and safety.
+    </div>
+  </div>
+  <div style="background: #f8f8f8">
+    <div style="padding: 5% 8%">
+      <p>
+        Our chauffeur service in South Africa offers luxury transportation
+        solutions, ensuring clients experience comfort and sophistication during
+        their travels. With expertly trained chauffeurs and a fleet of premium
+        vehicles ranging from economy cars to luxury vehicles, we prioritize
+        safety, punctuality, and personalized service for every journey.
+      </p>
+      <br />
+      <div
+        class="container text-center align-items-center justify-content-center"
+      >
+        <div class="row">
+          <div class="col-md-3 col-sm-12 text-left" style="text-align: left">
+            <h1 style="font-size: 300%; font-weight: 900">PERFECT FOR</h1>
+          </div>
+          <div class="col">
+            <img
+              src="{% static 'meeting-svg.svg' %}"
+              width="75px"
+              height="75px"
+              alt="Meeting icon"
+            />
+            <p>BUSINESS MEETINGS</p>
+          </div>
+          <div class="col">
+            <img
+              src="{% static 'tours-svg.svg' %}"
+              width="75px"
+              height="75px"
+              alt="Tours icon"
+            />
+            <p>TOURS</p>
+          </div>
+          <div class="col">
+            <img
+              src="{% static 'wedding-icon-svg.svg' %}"
+              width="75px"
+              height="75px"
+              alt="Wedding icon"
+            />
+            <p>WEDDINGS</p>
+          </div>
+          <div class="col">
+            <img
+              src="{% static 'matric-dance-svg.svg' %}"
+              width="75px"
+              height="75px"
+              alt="Matric dance icon"
+            />
+            <p>MATRIC DANCES</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding: 5% 8%">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-6 col-sm-12 text-left" style="text-align: left">
+          <h1 style="font-size: 300%; font-weight: 900">
+            A VEHICLE FOR ANYTHING YOU NEED
+          </h1>
+          <p>
+            With a wide range of vehicles ranging from luxury SUVs to
+            Convertibles, <br />
+            we'll have the right vehicle for you.
           </p>
-          <div class="d-flex justify-content-start">
-            <div class="icon-text-pair">
-              <img
-                src="{% static 'first-aid.png' %}"
-                width="50px"
-                height="50px"
-              />
-              <p style="color: #d4012b; margin-left: 10px">Basic First Aid</p>
-            </div>
-            <div class="icon-text-pair">
-              <img
-                src="{% static 'fire-fighting.png' %}"
-                width="50px"
-                height="50px"
-              />
-              <p style="color: #d4012b; margin-left: 10px">
-                Basic Fire Fighting
-              </p>
-            </div>
-            <div class="icon-text-pair">
-              <img
-                src="{% static 'business-etiquette.png' %}"
-                width="50px"
-                height="50px"
-              />
-              <p style="color: #d4012b; margin-left: 10px">
-                Business Etiquette
-              </p>
-            </div>
-            <div class="icon-text-pair">
-              <img
-                src="{% static 'advanced-driving.png' %}"
-                width="50px"
-                height="50px"
-              />
-              <p style="color: #d4012b; margin-left: 10px">
-                Advanced Driver Training
-              </p>
+          <a href="/fleet">
+            <button
+              type="button"
+              class="btn btn-outline-dark fleet-button rounded-0 mt-3"
+              style="color: black; width: 250px; font-weight: 550"
+            >
+              VIEW FLEET
+            </button>
+          </a>
+        </div>
+        <div class="col-md-6 col-sm-12 SUV-image-container">
+          <img
+            src="{% static 'acd-fleet-feature.jpg' %}"
+            alt="Bmw X5 and Mercedes V Class Sprinter with transparent background"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background: #f8f8f8">
+    <div class="container text-center p-0 m-0">
+      <div class="row">
+        <!-- Center the content horizontally and vertically -->
+        <!-- Image column -->
+        <div class="col-md-5 col-sm-12 text-center">
+          <img
+            src="{% static 'chauffeur-infront-of-car.jpg' %}"
+            class="img-fluid"
+            alt="Chauffeur in front of car"
+          />
+        </div>
+        <!-- Text column -->
+        <div
+          class="col-md-7 col-sm-12 d-flex flex-column justify-content-center"
+        >
+          <div style="margin-left: 40px">
+            <h2 style="text-align: left" class="mb-4 training-head">
+              OUR CHAUFFEURS ARE PROFFESIONALY TRAINED
+            </h2>
+            <p style="text-align: left" class="mb-5">
+              Our chauffeurs are trained in advanced driving, business
+              etiquette, basic firefighting, and first aid for top-tier service
+              and safety.
+            </p>
+            <div class="d-flex justify-content-start">
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'first-aid.png' %}"
+                  width="50px"
+                  height="50px"
+                  alt="First aid icon"
+                />
+                <p style="color: #d4012b; margin-left: 10px">Basic First Aid</p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'fire-fighting.png' %}"
+                  width="50px"
+                  height="50px"
+                  alt="Fire icon"
+                />
+                <p style="color: #d4012b; margin-left: 10px">
+                  Basic Fire Fighting
+                </p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'business-etiquette.png' %}"
+                  width="50px"
+                  height="50px"
+                  alt="Tie icon"
+                />
+                <p style="color: #d4012b; margin-left: 10px">
+                  Business Etiquette
+                </p>
+              </div>
+              <div class="icon-text-pair">
+                <img
+                  src="{% static 'advanced-driving.png' %}"
+                  width="50px"
+                  height="50px"
+                  alt="Steering wheel icon"
+                />
+                <p style="color: #d4012b; margin-left: 10px">
+                  Advanced Driver Training
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="why-us">
-  <h1
-    class="text-center align-items-center justify-content-center"
-    style="font-size: 400%"
-  >
-    WHY US?
-  </h1>
-  <div class="container text-left align-items-center justify-content-center">
-    <div class="row">
-      <div class="col text-left outlined-column">
-        <img src="{% static 'met-personally.png' %}" />
-        <p>
-          <br />
-          Our drivers personally greet clients at the airport, ensuring a
-          seamless and welcoming arrival experience.
-        </p>
-      </div>
-      <div class="col outlined-column">
-        <img src="{% static 'per-transfer.png' %}" />
-        <p>
-          <br />
-          We charge per vehicle per transfer, offering transparent pricing
-          without hidden costs per person or kilometer.
-        </p>
-      </div>
-      <div class="col outlined-column">
-        <img src="{% static 'safest-routes.png' %}" />
+  <div class="why-us">
+    <h1
+      class="text-center align-items-center justify-content-center"
+      style="font-size: 400%"
+    >
+      WHY US?
+    </h1>
+    <div class="container text-left align-items-center justify-content-center">
+      <div class="row">
+        <div class="col text-left outlined-column">
+          <img src="{% static 'met-personally.png' %}" alt="Handshake icon" />
+          <p>
+            <br />
+            Our drivers personally greet clients at the airport, ensuring a
+            seamless and welcoming arrival experience.
+          </p>
+        </div>
+        <div class="col outlined-column">
+          <img src="{% static 'per-transfer.png' %}" alt="Full wallet icon" />
+          <p>
+            <br />
+            We charge per vehicle per transfer, offering transparent pricing
+            without hidden costs per person or kilometer.
+          </p>
+        </div>
+        <div class="col outlined-column">
+          <img src="{% static 'safest-routes.png' %}" alt="Route icon" />
 
-        <p>
-          <br />
-          We meticulously select the safest routes, ensuring our clients travel
-          stress-free and with peace of mind.
-        </p>
+          <p>
+            <br />
+            We meticulously select the safest routes, ensuring our clients
+            travel stress-free and with peace of mind.
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col text-left outlined-column" style="text-align: left">
-        <img src="{% static 'latest-cars.png' %}" />
-        <p>
-          <br />
-          Choose from our fleet of the latest models, offering clients the
-          pinnacle of luxury and style for every journey.
-        </p>
-      </div>
-      <div class="col outlined-column">
-        <img src="{% static 'no-tolls.png' %}" />
-        <p>
-          <br />
-          We cover all toll fees, ensuring our clients enjoy a seamless journey
-          without additional costs.
-        </p>
-      </div>
-      <div class="col outlined-column">
-        <img src="{% static 'drivers-permit.png' %}" />
-        <p>
-          <br />
-          All our drivers possess public driver's permits, guaranteeing
-          professionalism and compliance at every turn.
-        </p>
+      <div class="row">
+        <div class="col text-left outlined-column">
+          <img src="{% static 'latest-cars.png' %}" alt="Cars icon" />
+          <p>
+            <br />
+            Choose from our fleet of the latest models, offering clients the
+            pinnacle of luxury and style for every journey.
+          </p>
+        </div>
+        <div class="col outlined-column">
+          <img src="{% static 'no-tolls.png' %}" alt="Toll icon" />
+          <p>
+            <br />
+            We cover all toll fees, ensuring our clients enjoy a seamless
+            journey without additional costs.
+          </p>
+        </div>
+        <div class="col outlined-column">
+          <img
+            src="{% static 'drivers-permit.png' %}"
+            alt="Drivers permit icon"
+          />
+          <p>
+            <br />
+            All our drivers possess public driver's permits, guaranteeing
+            professionalism and compliance at every turn.
+          </p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</body>
 
 {% endblock %}
