@@ -1,1 +1,86 @@
-{% extends './base.html'%} {% block content%} {% endblock %}
+{% extends './base.html'%} {% block content%}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <style>
+      body {
+        background-color: #f7f7f7;
+      }
+      form {
+        padding: 20px;
+        width: 50%;
+        align-item: center;
+        justify-content: center;
+        align-text: center;
+        height: 20rem;
+      }
+      .all-cont {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 60vh;
+        justify-content: center;
+      }
+      .btn-primary {
+        display: flex;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+      }
+      .btn-primary {
+        background-color: #d3072f;
+        border: none;
+        transition: transform 0.3s ease 0s;
+      }
+      .btn-primary:hover {
+        background-color: #d3072f !important;
+        border: none;
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <div class="all-cont">
+      <h1 class="mb-5">Find Booking Details</h1>
+      <form action="/bookingDetails/" method="GET">
+        {% csrf_token %}
+
+        <label for="emailFind" class="form-label">Email</label>
+        <input
+          type="text"
+          class="form-control mb-2"
+          id="emailFind"
+          name="email"
+          aria-describedby="emailFind"
+        />
+
+        <div style="display: flex; justify-content: center; margin-top: 10px">
+          <button type="submit" class="btn btn-primary">
+            View Booking Details
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script></script>
+  </body>
+</html>
+{% endblock %}

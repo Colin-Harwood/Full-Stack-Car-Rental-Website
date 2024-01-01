@@ -1,12 +1,49 @@
-<h1>Booking Details</h1>
+{% extends './base.html'%} {% block content%}
 
-<p>First Name: {{ booking.firstName }}</p>
-<p>Last Name: {{ booking.lastName }}</p>
-<p>Email: {{ booking.email }}</p>
-<p>Phone: {{ booking.phone }}</p>
-<p>Pick Up Location: {{ booking.pickUp }}</p>
-<p>Drop Off Location: {{ booking.dropOff }}</p>
-<p>Vehicle: {{ booking.vehicle }}</p>
-<p>Price: {{ booking.price }}</p>
-<p>Date: {{ booking.date }}</p>
-<p>Time: {{ booking.time }}</p>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <style>
+      .all-cont {
+        padding: 10px 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <div class="all-cont">
+      <h1>Bookings</h1>
+      {% for booking in bookings %}
+      <h2>Booking from {{ booking.pickUp }} to {{ booking.dropOff }}</h2>
+      <p>First Name: {{ booking.firstName }}</p>
+      <p>Last Name: {{ booking.lastName }}</p>
+      <p>Email: {{ booking.email }}</p>
+      <p>Phone: {{ booking.phone }}</p>
+      <p>Pick Up Location: {{ booking.pickUp }}</p>
+      <p>Drop Off Location: {{ booking.dropOff }}</p>
+      <p>Vehicle: {{ booking.vehicle }}</p>
+      <p>Price: R{{ booking.price }}</p>
+      <p>Date: {{ booking.date }}</p>
+      <p>Time: {{ booking.time }}</p>
+      {% endfor %}
+    </div>
+    <script src="" async defer></script>
+  </body>
+</html>
+
+{% endblock %}

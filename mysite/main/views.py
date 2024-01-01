@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.contrib import messages
 from datetime import datetime
 from .models import BookingDetails
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 def home(request):
     return render(request, 'home.html', {})
@@ -16,6 +18,9 @@ def newBookingDetails(request):
     return render(request, 'newBookingDetails.html', {})
 
 def viewBooking(request):
+    if request.method == "POST":
+        bookingDetail = BookingDetails.objects.get(email=request.POST.get('email'))
+        print(bookingDetail)
     return render(request, 'viewBooking.html', {})
 
 def newBookingVehicle(request):
@@ -51,11 +56,20 @@ def newBookingPay(request):
         print("names", firstName, lastName, email, phone, "pick", pickUpLocation, "drop", dropOff, "veh", vehicle, price, date, time)
         
         messages.success(request, 'Booking successful')
+
+        return HttpResponseRedirect(reverse('viewBooking'))
     return render(request, 'newBookingPay.html', {})
 
-def viewBookingDetails(request, booking_id):
-    # Query the database for the booking with the given ID
-    booking = BookingDetails.objects.get(id=booking_id)
+def viewBookingDetails(request, booking_id=None):
+    if booking_id:
+        # Query the database for the booking with the given ID
+        bookings = BookingDetails.objects.filter(id=booking_id)
+    else:
+        # Get the email parameter from the GET request
+        email = request.GET.get('email')
 
-    # Pass the booking to the template
-    return render(request, 'bookingDetails.html', {'booking': booking})
+        # Query the database for all bookings with the given email
+        bookings = BookingDetails.objects.filter(email=email)
+
+    # Pass the bookings to the template
+    return render(request, 'bookingDetails.html', {'bookings': bookings})
