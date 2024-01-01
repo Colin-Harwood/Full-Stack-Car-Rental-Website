@@ -69,18 +69,14 @@
       <h1>Bookings</h1>
       <hr />
       {% if messages %}
-  <ul class="messages">
-    {% for message in messages %}
-      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-  </ul>
+  
 {% endif %}
       <div class="container">
         {% for booking in bookings %}
         <div class="row">
           
           <div class="col">
-            <h2>Booking from {{ booking.pickUp }} to {{ booking.dropOff }}</h2>
+            <h2>{{ booking.pickUp }} to {{ booking.dropOff }}</h2>
             <p>First Name: {{ booking.firstName }}</p>
             <p>Last Name: {{ booking.lastName }}</p>
             <p>Email: {{ booking.email }}</p>
