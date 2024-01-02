@@ -31,4 +31,5 @@ urlpatterns = [
     path('bookingDetails/', v.viewBookingDetails, name='viewBookingDetails'),
     path('delete_booking/<int:booking_id>/', v.delete_booking, name='delete_booking'),
     path('update_booking/<int:booking_id>/', v.update_booking, name='update_booking'),
+    path('update_car_and_price/<int:booking_id>/', v.update_car_and_price, name='update_car_and_price'),
 ]

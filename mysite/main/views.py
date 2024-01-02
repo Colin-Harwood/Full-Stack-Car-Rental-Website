@@ -8,6 +8,7 @@ from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
     return render(request, 'home.html', {})
@@ -89,24 +90,47 @@ def delete_booking(request, booking_id):
 def update_booking(request, booking_id):
     print("Update booking", booking_id)
     if request.method == 'POST':
-        print("Update booking", booking_id)
-        print("Update booking", request.POST['firstName'])
-        booking = get_object_or_404(BookingDetails, id=booking_id)
-        booking.firstName = request.POST['firstName']
-        booking.lastName = request.POST['lastName']
-        booking.email = request.POST['email']
-        booking.phone = request.POST['phone']
-        booking.pickUp = request.POST['pickUpLocation']
-        booking.dropOff = request.POST['dropOffLocation']
+        if 'firstName' in request.POST:
+            print("Update booking", booking_id)
+            print("Update booking", request.POST['firstName'])
+            booking = get_object_or_404(BookingDetails, id=booking_id)
+            booking.firstName = request.POST['firstName']
+            booking.lastName = request.POST['lastName']
+            booking.email = request.POST['email']
+            booking.phone = request.POST['phone']
+            booking.pickUp = request.POST['pickUpLocation']
+            booking.dropOff = request.POST['dropOffLocation'] 
 
-        pickUp = datetime.strptime(request.POST['pickUp'], '%Y-%m-%dT%H:%M')
+            pickUp = datetime.strptime(request.POST['pickUp'], '%MM. %T%H:%M')
 
-        booking.date = pickUp.date()
-        booking.time = pickUp.time()
+            booking.date = pickUp.date()
+            booking.time = pickUp.time()
+            
+            # Update other fields in a similar way
+            booking.save()
+            return JsonResponse({'status': 'success'})
+        else:
+            booking = get_object_or_404(BookingDetails, id=booking_id)
+            booking.vehicle = request.post['vehicle']
+            booking.price = request.post['price']
         
-        # Update other fields in a similar way
-        booking.save()
-        return JsonResponse({'status': 'success'})
     
     else:
         return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
+    
+
+@csrf_exempt
+def update_car_and_price(request, booking_id):
+    if request.method == 'POST':
+        car = request.POST['car']
+        price = request.POST['price']
+
+        booking = get_object_or_404(BookingDetails, id=booking_id)
+        # Update the database
+        # This is just a placeholder, update it to match your actual database update logic
+        booking.vehicle = car
+        booking.price = price
+
+        booking.save()
+
+        return JsonResponse({'status': 'success'})
