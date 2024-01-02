@@ -13,15 +13,57 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6T8KDbJiGkvzkrVr51za7Md0Z0TgzYTY&libraries=places"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         @media (max-width: 768px) {
             footer {
                 fluid;
                 width: 450%;
                 margin: 0;
-                
-        padding: 0px !important;
+                padding: 0px !important;
               }
+              .top-div {
+                flex-direction: column;
+              }
+              #map {
+                margin-top: 20px;
+                width: 100% !important;
+              }
+              .top-div {
+                padding: 10px !important;
+              }
+              .sec-div {
+                width: 100% !important;
+              }
+        }
+        #map {
+          height: 400px;
+          width: 40%;
+        }
+        .head-text {
+          font-size: 50px;
+          font-weight: 700;
+          color: #000;
+          margin-bottom: 20px;
+          text-align: center;
+          width: 100% !important;
+        }
+        .top-div {
+          display: flex;
+          justify-content: space-between;
+          padding: 40px 80px;
+          align-items: center;
+        }
+        .btn {
+          background-color: #d3072f;
+          border: none;
+          transition: transform 0.3s ease 0s;
+        }
+        .btn:hover {
+          background-color: #d3072f !important;
+          border: none;
+          transform: scale(1.1);
         }
         body {
         background-color: #f5f5f5;
@@ -29,11 +71,7 @@
       .all-contentt {
         padding: 10px 50px;
       }
-       footer {
-        width: 120%;
-        margin: 0 -120px;
-        padding: 0px !important;
-      } 
+       
       .col {
         border: 1px solid #ccc;
         border-radius: 5px;
@@ -56,6 +94,42 @@
         border: none;
         transform: scale(1.1);
       }
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+      
+      .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+      
+      .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      
     </style>
   </head>
   <body>
@@ -87,9 +161,14 @@
             <p>Price: R{{ booking.price }}</p>
             <p>Date: {{ booking.date }}</p>
             <p>Time: {{ booking.time }}</p>
+            <p>Time: {{ booking.id }}</p>
             <div style="display: flex; justify-content: start; gap: 20px;">
-              <button type="submit" class="btn btn-primary">
+              
+              <button type="submit" id="myBtn" class="btn btn-primary">
                   Edit Booking Details
+              </button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vehicleModal">
+                Change Vehicle
               </button>
               <form method="POST" action="{% url 'delete_booking' booking.id %}">
                 {% csrf_token %}
@@ -102,11 +181,349 @@
           </div>
           
         </div>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="top-div" style="">
+              <div style="width: 50%" class="sec-div">
+                <h1 class="head-text">Edit Booking</h1>
+                <hr />
+                <form
+                  method="POST"
+                  onsubmit="store()"
+                  id="myForm{{ booking.id }}"
+                >
+                  {% csrf_token %}
+        
+                  <label for="exampleFName" class="form-label">First Name</label>
+                  <input
+                    type="text"
+                    class="form-control mb-2"
+                    id="exampleFName"
+                    aria-describedby="firstName"
+                    value="{{ booking.firstName }}"
+                  />
+                  <label for="exampleSName" class="form-label">Surname</label>
+                  <input
+                    type="text"
+                    class="form-control mb-2"
+                    id="exampleSName"
+                    aria-describedby="SName"
+                    value="{{ booking.lastName }}"
+                  />
+                  <label for="examplePick" class="form-label">Pick Up Location</label>
+                  <input
+                    type="text"
+                    class="form-control mb-2"
+                    id="examplePick"
+                    aria-describedby="pickUpLocation"
+                    value = "{{ booking.pickUp }}"
+                  />
+                  <label for="exampleDrop" class="form-label">Drop Off Location</label>
+                  <input
+                    type="text"
+                    class="form-control mb-2"
+                    id="exampleDrop"
+                    aria-describedby="dropOffLocation"
+                    value = "{{ booking.dropOff }}"
+                  />
+                  <div class="mb-2">
+                    <label for="exampleDateTime" class="form-label"
+                      >Date and time of your booking</label
+                    >
+                    <input
+                      type="datetime-local"
+                      class="form-control mb-2"
+                      id="exampleDateTime"
+                      aria-describedby="dateTime"
+                      value = "{{ booking.date }}T{{ booking.time }}"
+                    />
+                  </div>
+                  <div class="mb-2">
+                    <label for="email" class="form-label">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      aria-describedby="emailHelp"
+                      value="{{ booking.email }}"
+                    />
+        
+                    <div id="emailHelp" class="form-text">
+                      We'll never share your email with anyone else.
+                    </div>
+                  </div>
+        
+                  <div class="mb-3">
+                    <label for="examplePhone" class="form-label">Phone number</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="examplePhone"
+                      aria-describedby="emailHelp"
+                      value="{{ booking.phone }}"
+                    />
+                    <div id="emailHelp" class="form-text">
+                      We'll never share your phone number with anyone else.
+                    </div>
+                  </div>
+                  <div id="output" class="mb-3"></div>
+                  <button
+                    type="submit"
+                    id="myButton{{ booking.id }}"
+                    onclick="calculateAndDisplayRoute()"
+                    class="btn btn-primary"
+                    target=""
+                  >
+                    Update Details
+                  </button>
+                </form>
+              </div>
+              <div id="map" style="height: 400px; width: 40%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal" tabindex="-1" id="vehicleModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Change Vehicle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="vehicleForm{{booking.id}}">
+                  {% csrf_token %}
+                  <!-- Add your form fields for updating the vehicle here -->
+                  <button type="submit" class="btn btn-primary" onclick="storeVehicle()">Update Vehicle</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <script>
+          $(document).ready(function(){
+            $("#myForm{{booking.id}}").submit(function(e){
+                e.preventDefault();
+        
+                var pickUpLocation = localStorage.getItem("examplePick");
+                var dropOffLocation = localStorage.getItem("exampleDrop");
+                var pickUp = localStorage.getItem("exampleDateTime");
+                var firstName = localStorage.getItem("exampleFName");
+                var lastName = localStorage.getItem("exampleSName");
+                var email = localStorage.getItem("email");
+                var phone = localStorage.getItem("examplePhone");
+        
+                var data = {
+                    pickUpLocation: pickUpLocation,
+                    dropOffLocation: dropOffLocation,
+                    pickUp: pickUp,
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    phone: phone,
+                };
+        
+                $.ajax({
+                    url: "{% url 'update_booking' booking.id %}",
+                    type: 'post',
+                    data: $.param(data),
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader('X-CSRFToken', getCookie('csrftoken'));
+                    },
+                    success: function(response){
+                        // Close the modal
+                        $("#myModal").hide();
+                        // Display a success message
+                        if(response.status === 'success') {
+                            alert('Booking details updated successfully');
+                        } else {
+                            alert('There was an error updating the booking details');
+                        }
+                        // Update the page with the new data
+                        // This depends on the structure of your page and the data returned by the server
+                    }
+                });
+            });
+            $("#vehicleForm{{booking.id}}").submit(function(e){
+              e.preventDefault();
+          
+              var vehicle = $('#vehicle').val();
+          
+              var data = {
+                vehicle: vehicle,
+              };
+          
+              $.ajax({
+                url: "{% url 'update_booking' booking.id %}",
+                type: 'post',
+                data: $.param(data),
+                beforeSend: function(xhr) {
+                  xhr.setRequestHeader('X-CSRFToken', getCookie('csrftoken'));
+                },
+                success: function(response){
+                  // Close the modal
+                  $("#vehicleModal").hide();
+                  // Display a success message
+                  if(response.status === 'success') {
+                    alert('Vehicle updated successfully');
+                    // Update the page with the new vehicle
+                    $('#vehicle').text(response.booking.vehicle);
+                  } else {
+                    alert('There was an error updating the vehicle');
+                  }
+                }
+              });
+            });
+        });
+
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+
+        </script>
         {% endfor %}
       </div>
     </div>
+    
 </div>
-    <script src="" async defer></script>
+
+
+    <script>
+      var modal = document.getElementById("myModal");
+      var btn = document.getElementById("myBtn");
+      var span = document.getElementsByClassName("close")[0];
+      
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      
+      
+
+      var map;
+      var directionsService;
+      var directionsRenderer;
+
+      function initMap() {
+        directionsService = new google.maps.DirectionsService();
+        directionsRenderer = new google.maps.DirectionsRenderer();
+
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: -26.204, lng: 28.047 },
+          zoom: 8,
+        });
+
+        directionsRenderer.setMap(map);
+
+        var autocompletePick = initializeAutocomplete("examplePick");
+        var autocompleteDrop = initializeAutocomplete("exampleDrop");
+
+        autocompletePick.addListener("place_changed", calculateAndDisplayRoute);
+        autocompleteDrop.addListener("place_changed", calculateAndDisplayRoute);
+      }
+
+      function calculateAndDisplayRoute() {
+        var origin = document.getElementById("examplePick").value;
+        var destination = document.getElementById("exampleDrop").value;
+
+        // Only call the Directions service when both fields are filled
+        if (origin && destination) {
+          directionsService.route(
+            {
+              origin: origin,
+              destination: destination,
+              travelMode: "DRIVING",
+            },
+            function (response, status) {
+              if (status === "OK") {
+                directionsRenderer.setDirections(response);
+
+                // Extract distance and duration from the response
+                var distance = response.routes[0].legs[0].distance.text;
+                var duration = response.routes[0].legs[0].duration.text;
+
+                localStorage.setItem("distance", distance);
+                localStorage.setItem("duration", duration);
+                // Display distance and duration
+                document.getElementById("output").innerHTML =
+                  "Distance: " + distance + ", Duration: " + duration;
+              } else {
+                window.alert("Directions request failed due to " + status);
+              }
+            }
+          );
+        }
+      }
+
+      function initializeAutocomplete(id) {
+        var input = document.getElementById(id);
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        return autocomplete;
+      }
+
+      google.maps.event.addDomListener(window, "load", initMap);
+
+      function store() {
+        var inputEmail = document.getElementById("email");
+        localStorage.setItem("email", inputEmail.value);
+
+        var examplePick = document.getElementById("examplePick");
+        localStorage.setItem("examplePick", examplePick.value);
+
+        var exampleDrop = document.getElementById("exampleDrop");
+        localStorage.setItem("exampleDrop", exampleDrop.value);
+
+        var exampleDateTime = document.getElementById("exampleDateTime");
+        localStorage.setItem("exampleDateTime", exampleDateTime.value);
+
+        var examplePhone = document.getElementById("examplePhone");
+        localStorage.setItem("examplePhone", examplePhone.value);
+
+        var exampleFName = document.getElementById("exampleFName");
+        localStorage.setItem("exampleFName", exampleFName.value);
+
+        var exampleSName = document.getElementById("exampleSName");
+        localStorage.setItem("exampleSName", exampleSName.value);
+
+        var output = document.getElementById("output");
+        localStorage.setItem("output", output);
+      }
+
+      function storeVehicle() {
+        var vehicle = document.getElementById("vehicle");
+        localStorage.setItem("vehicle", vehicle.value);
+      }
+
+      for (var i in localStorage) {
+        var item = localStorage.getKey(i);
+        console.log(i + " => " + item);
+      }
+
+      console.log("test");
+    </script>
+    
   </body>
 </html>
 
