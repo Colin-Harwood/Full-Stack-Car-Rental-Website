@@ -101,7 +101,7 @@ def update_booking(request, booking_id):
             booking.pickUp = request.POST['pickUpLocation']
             booking.dropOff = request.POST['dropOffLocation'] 
 
-            pickUp = datetime.strptime(request.POST['pickUp'], '%MM. %T%H:%M')
+            pickUp = datetime.strptime(request.POST['pickUp'], '%Y-%m-%dT%H:%M')
 
             booking.date = pickUp.date()
             booking.time = pickUp.time()
