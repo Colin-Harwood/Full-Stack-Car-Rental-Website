@@ -1,5 +1,10 @@
 # Chauffeur, A Full-Stack-Car-Rental-Website Built Using Django And Bootstrap with Google Maps Api to Select Two Points and Give Accurate Prices
 
+<h2>About the project</h2>
+Chauffeur uses django for this application, as well using javascript, css, html and bootstrap for the frontend while storing all of the bookings in a sql database.
+Google maps api is also used within this project to firstly autofill the drop off and pick up points as well as find the distance and time between these points by car.
+This is further used to dynamically render prices of vehicles for this trip through a calculation based on the car, time, and distance of travel.
+
 <h2>Landing Page</h2>
 
 ![home](https://github.com/Colin-Harwood/Full-Stack-Car-Rental-Website/assets/138476341/41e147e0-51a1-4b9e-b8c7-f179f8ec5daa)
