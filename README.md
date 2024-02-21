@@ -5,6 +5,40 @@ Chauffeur uses django for this application, as well using javascript, css, html 
 Google maps api is also used within this project to firstly autofill the drop off and pick up points as well as find the distance and time between these points by car.
 This is further used to dynamically render prices of vehicles for this trip through a calculation based on the car, time, and distance of travel.
 
+<h2>Languages/Technologies Used</h2>
+
+[Google Maps API]: https://img.shields.io/badge/Google_Maps_API-4285F4?style=for-the-badge&logo=google-maps&logoColor=white
+[Google Maps API-url]: https://developers.google.com/maps
+[![Google Maps API][Google Maps API]][Google Maps API-url]
+
+[HTML]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[HTML-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
+[![HTML][HTML]][HTML-url]
+
+[CSS]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
+[![CSS][CSS]][CSS-url]
+
+[JavaScript]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+[JavaScript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+[![JavaScript][JavaScript]][JavaScript-url]
+
+[Bootstrap]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com/
+[![Bootstrap][Bootstrap]][Bootstrap-url]
+
+[React]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[![React][React]][React-url]
+
+[Django]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
+[Django-url]: https://www.djangoproject.com/
+[![Django][Django]][Django-url]
+
+[SQL]: https://img.shields.io/badge/SQL-025E8C?style=for-the-badge&logo=sqlite&logoColor=white
+[SQL-url]: https://www.sqlite.org/index.html
+[![SQL][SQL]][SQL-url]
+
 <h2>Landing Page</h2>
 
 ![home](https://github.com/Colin-Harwood/Full-Stack-Car-Rental-Website/assets/138476341/41e147e0-51a1-4b9e-b8c7-f179f8ec5daa)
